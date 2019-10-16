@@ -345,6 +345,15 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\GMSsalepng.png" />
+    <Resource Include="images\GMSstock.png" />
+    <Resource Include="images\GMS_arguments.png" />
+    <Resource Include="images\GMS_install.png" />
+    <Resource Include="images\GMS_large.png" />
+    <Resource Include="images\GMS_order.png" />
+    <Resource Include="images\GMS_shrink.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
