@@ -1,0 +1,76 @@
+﻿<Page x:Class="GreeManagmentSystem.User.Preview.OrderView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:GreeManagmentSystem.User.Preview"
+      xmlns:core="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="OrderView">
+    <Page.Resources>
+        <Style x:Key="StackStyle" TargetType="StackPanel">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="220"/>
+            <Setter Property="Orientation" Value="Vertical"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <!--根据日期查询-->
+                    <StackPanel Grid.Column="0" Style="{StaticResource StackStyle}" >
+                        <TextBlock Text="根据日期查询" FontSize="14"/>
+                        <DatePicker Name="Date" Height="30" Margin="0 5 0 0" FontSize="14"
+                  Width="220" BorderThickness="1" BorderBrush="Gray" SelectedDateChanged="Date_SelectedDateChanged"/>
+                    </StackPanel>
+                    <!--根据状态查询-->
+                    <StackPanel Grid.Column="1" Style="{StaticResource StackStyle}" >
+                        <TextBlock Text="根据状态查询" FontSize="14"/>
+                        <ComboBox Name="State" IsEditable="True" Height="30" Margin="0 5 0 0" FontSize="14" 
+                  Width="220" BorderThickness="1" BorderBrush="Gray" SelectionChanged="State_SelectionChanged">
+                        </ComboBox>
+                    </StackPanel>
+
+                    <!--根据名称查询-->
+                    <StackPanel Grid.Column="2" Style="{StaticResource StackStyle}" >
+                        <TextBlock Text="根据名称查询" FontSize="14"/>
+                        <ComboBox Name="Name" IsEditable="True" Height="30" Margin="0 5 0 0" FontSize="14" 
+                  Width="220" BorderThickness="1" BorderBrush="Gray" SelectionChanged="Name_SelectionChanged">
+                        </ComboBox>
+                    </StackPanel>
+                    <!--根据型号查询-->
+                    <StackPanel Grid.Column="3" Style="{StaticResource StackStyle}" >
+                        <TextBlock Text="根据型号查询" FontSize="14"/>
+                        <ComboBox Name="Type" IsEditable="True" Height="30" Margin="0 5 0 0" FontSize="14" 
+                  Width="220" BorderThickness="1" BorderBrush="Gray" SelectionChanged="Type_SelectionChanged">
+                        </ComboBox>
+                    </StackPanel>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Row="1">
+            <DataGrid x:Name="DataGrid_OrderView"
+                  AutoGenerateColumns="True" CurrentCellChanged="DataGrid_OrderView_CurrentCellChanged"
+                  CanUserReorderColumns="False" CanUserDeleteRows="False"  CanUserAddRows="True" 
+                  AlternatingRowBackground="#ffd191" AlternationCount="2" PreviewKeyDown="DataGrid_OrderView_PreviewKeyDown"
+                  >
+            </DataGrid>
+        </Grid>
+
+    </Grid>
+</Page>

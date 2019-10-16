@@ -1,0 +1,96 @@
+﻿<Page x:Class="GreeManagmentSystem.User.Preview.SaleView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GreeManagmentSystem.User.Preview"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SaleView">
+    <Page.Resources>
+        <Style x:Key="StackStyle" TargetType="StackPanel">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="220"/>
+            <Setter Property="Orientation" Value="Vertical"/>
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto">
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <!--根据日期查询-->
+                <StackPanel Grid.Column="0" Style="{StaticResource StackStyle}" >
+                    <TextBlock Text="根据日期查询" FontSize="14"/>
+                        <DatePicker Name="Date" Height="30" Margin="0 5 0 0" FontSize="14"
+                  Width="220" BorderThickness="1" BorderBrush="Gray" SelectedDateChanged="Date_SelectedDateChanged"/>
+                    </StackPanel>
+                    <!--根据状态查询-->
+                <StackPanel Grid.Column="1" Style="{StaticResource StackStyle}" >
+                        <TextBlock Text="根据状态查询" FontSize="14"/>
+                        <ComboBox Name="State" IsEditable="True" Height="30" Margin="0 5 0 0" FontSize="14" 
+                  Width="220" BorderThickness="1" BorderBrush="Gray" SelectionChanged="State_SelectionChanged">
+                        </ComboBox>
+                 </StackPanel>
+                    <!--根据客户姓名查询-->
+                <StackPanel Grid.Column="2" Style="{StaticResource StackStyle}" >
+                    <TextBlock Text="根据客户姓名查询" FontSize="14"/>
+                    <ComboBox Name="CustomerName" IsEditable="True" Height="30" Margin="0 5 0 0" FontSize="14" 
+                  Width="220" BorderThickness="1" BorderBrush="Gray" SelectionChanged="CustomerName_SelectionChanged">
+                    </ComboBox>
+                </StackPanel>
+
+                    <!--根据名称查询-->
+                    <StackPanel Grid.Column="3" Style="{StaticResource StackStyle}" >
+                        <TextBlock Text="根据名称查询" FontSize="14"/>
+                        <ComboBox Name="Name" IsEditable="True" Height="30" Margin="0 5 0 0" FontSize="14" 
+                  Width="220" BorderThickness="1" BorderBrush="Gray" SelectionChanged="Name_SelectionChanged">
+                        </ComboBox>
+                    </StackPanel>
+                    <!--根据型号查询-->
+                <StackPanel Grid.Column="4" Style="{StaticResource StackStyle}" >
+                    <TextBlock Text="根据型号查询" FontSize="14"/>
+                    <ComboBox Name="Type" IsEditable="True" Height="30" Margin="0 5 0 0" FontSize="14" 
+                  Width="220" BorderThickness="1" BorderBrush="Gray" SelectionChanged="Type_SelectionChanged">
+                    </ComboBox>
+                </StackPanel>
+
+
+
+            </Grid>
+            </ScrollViewer>
+            <Grid Grid.Row="1">
+                <DataGrid x:Name="DataGrid_SalesView" 
+                  AutoGenerateColumns="True" CurrentCellChanged="DataGrid_SalesView_CurrentCellChanged"
+                  CanUserReorderColumns="False" CanUserDeleteRows="False"  CanUserAddRows="True" 
+                  AlternatingRowBackground="#f99984" AlternationCount="2" PreviewKeyDown="DataGrid_SalesView_PreviewKeyDown" GotFocus="DataGrid_SalesView_GotFocus" 
+                  >
+            </DataGrid>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button x:Name="Out" VerticalAlignment="Center"  Margin="0 10"
+                Click="Out_Click" FontSize="16" 
+                Style="{StaticResource MaterialDesignFlatButton}" Foreground="#FFD41515"
+                ToolTip="修改状态为'已出库'">
+                    一键出库
+                </Button>
+            </Grid>
+        </Grid>
+        <!--消息框-->
+        <materialDesign:Snackbar x:Name="message" IsActive="False" Opacity="0.5" >
+            <materialDesign:SnackbarMessage x:Name="sure"  Content="执行成功" ActionClick="sure_ActionClick" ActionContent="确定"/>
+        </materialDesign:Snackbar>
+    </Grid>
+</Page>

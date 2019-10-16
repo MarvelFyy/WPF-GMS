@@ -1,0 +1,147 @@
+﻿<Page x:Class="GreeManagmentSystem.User.InputInfo.SaleInput"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+      xmlns:local="clr-namespace:GreeManagmentSystem.User.InputInfo"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SaleInput">
+    <Page.Resources>
+        <!--左上角textblock-->
+        <Style x:Key="StackStyle" TargetType="StackPanel">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="250"/>
+            <Setter Property="Orientation" Value="Vertical"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--左输入框-->
+
+            <StackPanel Grid.Column="0" Grid.Row="0" Style="{StaticResource StackStyle}">
+                <TextBlock Text="日期" FontSize="14"/>
+                <DatePicker Name="Date" Height="30" Margin="0 5 0 0" FontSize="14"
+                            SelectedDate="{x:Static sys:DateTime.Now}"
+                  Width="250" BorderThickness="1" BorderBrush="Gray"/>
+            </StackPanel>
+            <StackPanel Grid.Column="0" Grid.Row="1" Style="{StaticResource StackStyle}">
+                <TextBlock Text="类别" FontSize="14"/>
+                <ComboBox Name="Category" IsEditable="True" Height="30" Margin="0 5 0 0" FontSize="14"
+                  Width="250" BorderThickness="1" BorderBrush="Gray" SelectionChanged="Category_SelectionChanged">
+                </ComboBox>
+            </StackPanel>
+            <!--机型名称选择器-->
+            <StackPanel Grid.Column="0" Grid.Row="2" Style="{StaticResource StackStyle}">
+                <TextBlock Text="名称" FontSize="14"/>
+                <ComboBox Name="Name" IsEditable="True" Height="30" Margin="0 5 0 0" FontSize="14"
+                  Width="250" BorderThickness="1" BorderBrush="Gray" SelectionChanged="Name_SelectionChanged"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0" Grid.Row="3" Style="{StaticResource StackStyle}">
+                <TextBlock Text="型号" FontSize="14"/>
+                <ComboBox Name="Type" IsEditable="True" Height="30" Margin="0 5 0 0" FontSize="14"
+                          SelectionChanged="Type_SelectionChanged"
+                  Width="250" BorderThickness="1" BorderBrush="Gray"/>
+            </StackPanel>
+
+            <TextBox x:Name="Number" HorizontalAlignment="Center" Margin="5" Width="250" Grid.Column="0" Grid.Row="4"
+                     Style="{StaticResource TextBoxRevealStyle}" BorderThickness="1" BorderBrush ="Gray"
+                     fw:Extensions.PlaceholderText="请输入数量" fw:Extensions.Header="数量" TextChanged="Number_TextChanged"/>
+
+            <TextBox  x:Name="Price" HorizontalAlignment="Center" Margin="5" Width="250" Grid.Column="0" Grid.Row="5"
+                     Style="{StaticResource TextBoxRevealStyle}" BorderThickness="1" BorderBrush ="Gray"
+                     fw:Extensions.PlaceholderText="请输入价格" fw:Extensions.Header="单价" TextChanged="Price_TextChanged"/>
+
+            <TextBox  x:Name="Total" HorizontalAlignment="Center" Margin="5" Width="250" Grid.Column="0" Grid.Row="6"
+                     Style="{StaticResource TextBoxRevealStyle}" BorderThickness="1" BorderBrush ="Gray"
+                     fw:Extensions.PlaceholderText="自动计算总价" fw:Extensions.Header="总价"/>
+
+            <StackPanel Grid.Column="0" Grid.Row="7" Style="{StaticResource StackStyle}">
+                <CheckBox 
+            x:Name="MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox"
+            IsChecked="False"
+            >
+                    备注
+                </CheckBox>
+                <TextBox x:Name="Remarks"
+            Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+            Margin="0 5"
+            VerticalAlignment="Top"
+            Height="70" Width="250"
+            AcceptsReturn="True"
+            TextWrapping="Wrap"
+            VerticalScrollBarVisibility="Auto"
+            materialDesign:HintAssist.Hint="请输入备注"
+            IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox}" />
+            </StackPanel>
+
+            <!--右输入框-->
+            <TextBox x:Name="CustomerName" HorizontalAlignment="Center" Margin="5" Width="250" Grid.Column="1" Grid.Row="0"
+                     Style="{StaticResource TextBoxRevealStyle}" BorderThickness="1" BorderBrush ="Gray"
+                     fw:Extensions.PlaceholderText="请输入姓名" fw:Extensions.Header="客户姓名" />
+
+            <TextBox  x:Name="Tel" HorizontalAlignment="Center" Margin="5" Width="250" Grid.Column="1" Grid.Row="1"
+                     Style="{StaticResource TextBoxRevealStyle}" BorderThickness="1" BorderBrush ="Gray"
+                     fw:Extensions.PlaceholderText="请输入电话" fw:Extensions.Header="客户电话"/>
+
+            <TextBox  x:Name="Address" HorizontalAlignment="Center" Margin="5" Width="250" Grid.Column="1" Grid.Row="2"
+                     Style="{StaticResource TextBoxRevealStyle}" BorderThickness="1" BorderBrush ="Gray"
+                     fw:Extensions.PlaceholderText="请输入地址" fw:Extensions.Header="客户地址"/>
+            <!--右输入框-->
+            <TextBox x:Name="OrderPayment" HorizontalAlignment="Center" Margin="5" Width="250" Grid.Column="1" Grid.Row="3"
+                     Style="{StaticResource TextBoxRevealStyle}" BorderThickness="1" BorderBrush ="Gray"
+                     fw:Extensions.PlaceholderText="请输入金额" fw:Extensions.Header="定金"/>
+
+            <StackPanel Grid.Column="1" Grid.Row="4" Style="{StaticResource StackStyle}">
+                <TextBlock Text="支付方式" FontSize="14"/>
+                <ComboBox Name="Payment" IsEditable="True" Height="30" Margin="0 5 0 0" FontSize="14"
+                  Width="250" BorderThickness="1" BorderBrush="Gray">
+                    <ComboBoxItem>现金</ComboBoxItem>
+                    <ComboBoxItem>微信</ComboBoxItem>
+                    <ComboBoxItem>支付宝</ComboBoxItem>
+                    <ComboBoxItem>云闪付</ComboBoxItem>
+                    <ComboBoxItem>银行卡</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+
+            <TextBox  x:Name="SalesMan" HorizontalAlignment="Center" Margin="5" Width="250" Grid.Column="1" Grid.Row="5"
+                     Style="{StaticResource TextBoxRevealStyle}" BorderThickness="1" BorderBrush ="Gray"
+                     fw:Extensions.PlaceholderText="请输入销售人员" fw:Extensions.Header="销售人员"/>
+
+            <StackPanel Grid.Column="1" Grid.Row="7"  Margin="75 20">
+                <Button x:Name="Submit"
+                Click="Submit_Click" FontSize="16"
+                Style="{StaticResource MaterialDesignFlatButton}" Foreground="#FFD41515"
+                ToolTip="提交订单">
+                    提交订单
+                </Button>
+            </StackPanel>
+        </Grid>
+        <!--消息框-->
+        <materialDesign:Snackbar x:Name="message" IsActive="False" Opacity="0.5" >
+            <materialDesign:SnackbarMessage x:Name="sure"  Content="提交成功" ActionClick="sure_ActionClick" ActionContent="确定"/>
+        </materialDesign:Snackbar>
+    </Grid>
+</Page>

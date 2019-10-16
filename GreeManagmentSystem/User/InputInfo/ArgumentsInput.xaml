@@ -1,0 +1,490 @@
+﻿<Page x:Class="GreeManagmentSystem.User.InputInfo.ArgumentsInput"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GreeManagmentSystem.User.InputInfo"
+      xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      FontFamily="{DynamicResource MaterialDesignFont}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ArgumentsInput">
+    <Page.Resources>
+        <Style x:Key="StackStyle" TargetType="ComboBox">
+            <Setter Property="IsEnabled" Value="True"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="110"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderBrush" Value="Gray"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+        <!--机型-->
+        <Style x:Key="StackType" TargetType="StackPanel">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Width" Value="280"/>
+            <Setter Property="Orientation" Value="Vertical"/>
+        </Style>
+        <!--名称-->
+        <Style x:Key="StackName" TargetType="StackPanel">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Orientation" Value="Vertical"/>
+        </Style>
+
+        <Style x:Key="StackRemarks" TargetType="StackPanel">
+            <Setter Property="Margin" Value="10 5"/>
+            <Setter Property="Orientation" Value="Vertical"/>
+        </Style>
+    </Page.Resources>
+    
+
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            
+        <Grid>
+            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        
+        <Grid  Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <!--类别-->
+            <StackPanel Grid.Column="0" Grid.Row="0" Style="{StaticResource StackName}">
+                <TextBlock Text="类别" FontSize="14"/>
+                <ComboBox Name="Category"  materialDesign:HintAssist.Hint="例如：挂机" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray"  
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" >
+                    <ComboBoxItem>挂机</ComboBoxItem>
+                    <ComboBoxItem>柜机</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <!--系列-->
+            <StackPanel  Grid.Column="1" Style="{StaticResource StackName}">
+                <TextBlock Text="系列" FontSize="14"/>
+                <ComboBox Name="Series" materialDesign:HintAssist.Hint="例如：润铂" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray"  
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}"  />
+            </StackPanel>
+            <!--工作方式-->
+            <StackPanel Grid.Column="2" Style="{StaticResource StackName}">
+                <TextBlock Text="工作方式" FontSize="14"/>
+                <ComboBox Name="Work" materialDesign:HintAssist.Hint="例如：变频" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray"  
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                    <ComboBoxItem>变频</ComboBoxItem>
+                    <ComboBoxItem>定频</ComboBoxItem>
+                    <ComboBoxItem>定速</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <!--能效等级-->
+            <StackPanel Grid.Column="3" Style="{StaticResource StackName}">
+                <TextBlock Text="能效等级" FontSize="14"/>
+                <ComboBox Name="Level" materialDesign:HintAssist.Hint="例如：1级" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray"  
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                    <ComboBoxItem>1级</ComboBoxItem>
+                    <ComboBoxItem>2级</ComboBoxItem>
+                    <ComboBoxItem>3级</ComboBoxItem>
+                    <ComboBoxItem>4级</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <!--冷暖方式-->
+            <StackPanel Grid.Column="4" Style="{StaticResource StackName}">
+                <TextBlock Text="冷暖方式" FontSize="14"/>
+                <ComboBox Name="Cold" materialDesign:HintAssist.Hint="例如：冷暖" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray"  
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                    <ComboBoxItem>冷暖</ComboBoxItem>
+                    <ComboBoxItem>单冷</ComboBoxItem>
+                    <ComboBoxItem>冷暖电辅</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <!--颜色/备注-->
+            <StackPanel Grid.Column="5" Style="{StaticResource StackName}">
+                <TextBlock Text="颜色/备注" FontSize="14"/>
+                <ComboBox Name="Color" materialDesign:HintAssist.Hint="例如：WIFI" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray" 
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                    <ComboBoxItem>WIFI</ComboBoxItem>
+                    <ComboBoxItem>新品</ComboBoxItem>
+                    <ComboBoxItem>纯白</ComboBoxItem>
+                    <ComboBoxItem>以库定销</ComboBoxItem>
+                </ComboBox>
+
+            </StackPanel>
+
+        </Grid>
+
+        <!--机型名称显示-->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Margin="30">
+                <TextBox BorderBrush="Gray" TextAlignment="Center"
+                      Height="30" FontSize="14" Text="["
+                     />
+                
+                <TextBox x:Name="CategoryT" BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=Category}"
+                     />
+
+                <TextBox BorderBrush="Gray" TextAlignment="Center"
+                      Height="30" FontSize="14" Text="]"
+                     />
+                
+                <TextBox x:Name="SeriesT" BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=Series}"
+                     />
+                
+                <TextBox x:Name="WorkT" BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=Work}"
+                     />
+                
+                <TextBox x:Name="LevelT" BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=Level}"
+                     />
+                
+                <TextBox x:Name="ColdT" BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=Cold}"
+                     />
+                
+                <TextBox BorderBrush="Gray" TextAlignment="Center"
+                      Height="30" FontSize="14" Text="("
+                     />
+                
+                <TextBox x:Name="ColorT" BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=Color}"
+                     />
+                
+                <TextBox BorderBrush="Gray" TextAlignment="Center"
+                      Height="30" FontSize="14" Text=")"
+                     />
+                
+            </StackPanel>
+
+        <ScrollViewer Grid.Row="2"  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <!--产品代号-->
+                <StackPanel Grid.Column="0" Style="{StaticResource StackName}">
+                    <TextBlock Text="产品代号" FontSize="14"/>
+                    <ComboBox Name="ProCode"  materialDesign:HintAssist.Hint="例如：K" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray"  
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}" >
+                        <ComboBoxItem>K</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                    <!--结构形式-->
+                <StackPanel  Grid.Column="1" Style="{StaticResource StackName}">
+                    <TextBlock Text="结构形式" FontSize="14"/>
+                    <ComboBox Name="Struct" materialDesign:HintAssist.Hint="例如：F" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray"  
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem>F</ComboBoxItem>
+                        <ComboBoxItem>C</ComboBoxItem>
+                        <ComboBoxItem>Y</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                    <!--功能代号-->
+                <StackPanel  Grid.Column="2" Style="{StaticResource StackName}">
+                    <TextBlock Text="功能代号" FontSize="14"/>
+                    <ComboBox Name="Function" materialDesign:HintAssist.Hint="例如：R" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray"  
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem>R</ComboBoxItem>
+                        <ComboBoxItem>D</ComboBoxItem>
+                        <ComboBoxItem>RdBP</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                    <!--规格代号-->
+                <StackPanel  Grid.Column="3" Style="{StaticResource StackName}">
+                    <TextBlock Text="规格代号" FontSize="14"/>
+                    <ComboBox Name="Specification" materialDesign:HintAssist.Hint="例如：35" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray"  
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem>23</ComboBoxItem>
+                        <ComboBoxItem>26</ComboBoxItem>
+                        <ComboBoxItem>32</ComboBoxItem>
+                        <ComboBoxItem>35</ComboBoxItem>
+                        <ComboBoxItem>50</ComboBoxItem>
+                        <ComboBoxItem>72</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                    <!--类别代号-->
+                <StackPanel Grid.Column="4" Style="{StaticResource StackName}">
+                    <TextBlock Text="类别" FontSize="14"/>
+                    <ComboBox Name="CategoryCode" materialDesign:HintAssist.Hint="例如：G" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray"  
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem>D</ComboBoxItem>
+                        <ComboBoxItem>G</ComboBoxItem>
+                        <ComboBoxItem>L</ComboBoxItem>
+                        <ComboBoxItem>T</ComboBoxItem>
+                        <ComboBoxItem>Q</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                    <!--外机结构-->
+                <StackPanel Grid.Column="5" Style="{StaticResource StackName}">
+                    <TextBlock Text="外机结构" FontSize="14"/>
+                    <ComboBox Name="External" materialDesign:HintAssist.Hint="例如：W" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray"  
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem>W</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                    <!--冷量 结构 序号-->
+                <StackPanel Grid.Column="6" Style="{StaticResource StackName}">
+                    <TextBlock Text="冷量 结构 序号" FontSize="14"/>
+                    <ComboBox Name="Multiple" materialDesign:HintAssist.Hint="例如：35564" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray"  
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                    </ComboBox>
+                </StackPanel>
+                    <!--工作方式-->
+                <StackPanel Grid.Column="7" Style="{StaticResource StackName}">
+                    <TextBlock Text="工作方式" FontSize="14"/>
+                <ComboBox Name="WorkCode" materialDesign:HintAssist.Hint="例如：F" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray" 
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem>F</ComboBoxItem>
+
+                </ComboBox>
+            </StackPanel>
+            <!--颜色/备注-->
+            <StackPanel Grid.Column="8" Style="{StaticResource StackName}">
+                <TextBlock Text="冷暖方式" FontSize="14"/>
+                <ComboBox Name="ColdCode" materialDesign:HintAssist.Hint="例如：Nh" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray" 
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                    <ComboBoxItem>N</ComboBoxItem>
+                    <ComboBoxItem>Nh</ComboBoxItem>
+                    <ComboBoxItem>Np</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+                    <!--面板代码-->
+                <StackPanel Grid.Column="9" Style="{StaticResource StackName}">
+                    <TextBlock Text="面板代码" FontSize="14"/>
+                    <ComboBox Name="FaceCode" materialDesign:HintAssist.Hint="例如：Aa" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray" 
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem>Aa</ComboBoxItem>
+                        <ComboBoxItem>Ab</ComboBoxItem>
+                        <ComboBoxItem>Ac</ComboBoxItem>
+                        <ComboBoxItem>Ad</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                    <!--能效等级-->
+                <StackPanel Grid.Column="10" Style="{StaticResource StackName}">
+                    <TextBlock Text="能效等级" FontSize="14"/>
+                    <ComboBox Name="LevelCode" materialDesign:HintAssist.Hint="例如：A1" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray" 
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem>A1</ComboBoxItem>
+                        <ComboBoxItem>A2</ComboBoxItem>
+                        <ComboBoxItem>A3</ComboBoxItem>
+                        <ComboBoxItem>A4</ComboBoxItem>
+                        <ComboBoxItem>1</ComboBoxItem>
+                        <ComboBoxItem>2</ComboBoxItem>
+                        <ComboBoxItem>3</ComboBoxItem>
+                        <ComboBoxItem>4</ComboBoxItem>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Grid.Column="11" Style="{StaticResource StackName}">
+                    <TextBlock Text="备注信息" FontSize="14"/>
+                    <ComboBox Name="RemarkCode" materialDesign:HintAssist.Hint="例如：WIFI" 
+                          IsEditable="True" BorderThickness="1" BorderBrush="Gray" 
+                          FontSize="13" Padding="6" 
+                          Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                        <ComboBoxItem>WIFI</ComboBoxItem>
+
+                    </ComboBox>
+                </StackPanel>
+
+            </Grid>
+
+        </ScrollViewer>
+
+        <!--机型名称显示-->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="30">
+            <TextBox x:Name="ProCodeT" BorderBrush="Gray" TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=ProCode}"
+                     />
+
+            <TextBox x:Name="StructT" BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=Struct}"
+                     />
+
+            <TextBox x:Name="FunctionT" BorderBrush="Gray" TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=Function}"
+                     />
+
+            <TextBox  BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="-"
+                     />
+
+            <TextBox x:Name="SpecificationT" BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=Specification}"
+                     />
+
+            <TextBox x:Name="CategoryCodeT" BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=CategoryCode}"
+                     />
+
+            <TextBox x:Name="ExternalT" BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=External}"
+                     />
+            <TextBox  BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="/"
+                     />
+            <TextBox  BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="("
+                     />
+            <TextBox  x:Name="MultipleT" BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=Multiple}"
+                     />
+
+            <TextBox BorderBrush="Gray" TextAlignment="Center"
+                      Height="30" FontSize="14" Text=")"
+                     />
+
+            <TextBox x:Name="WorkCodeT" BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=WorkCode}"
+                     />
+
+            <TextBox x:Name="ColdCodeT" BorderBrush="Gray" TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=ColdCode}"
+                     />
+
+            <TextBox x:Name="FaceCodeT" BorderBrush="Gray" TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=FaceCode}"
+                     />
+
+            <TextBox  BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="-"
+                     />
+
+            <TextBox x:Name="LevelCodeT" BorderBrush="Gray" TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=LevelCode}"
+                     />
+            <TextBox  BorderBrush="Gray"  TextAlignment="Center"
+                      Height="30" FontSize="14" Text="("
+                     />
+            <TextBox x:Name="RemarkCodeT" BorderBrush="Gray" TextAlignment="Center"
+                      Height="30" FontSize="14" Text="{Binding Text,ElementName=RemarkCode}"
+                     />
+            <TextBox BorderBrush="Gray" TextAlignment="Center"
+                      Height="30" FontSize="14" Text=")"
+                     />
+
+        </StackPanel>
+
+            <StackPanel Grid.Row="4" Style="{StaticResource StackRemarks}">
+                <CheckBox 
+            x:Name="MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox"
+            IsChecked="False"
+            >
+                    备注
+                </CheckBox>
+                <TextBox x:Name="Remarks"
+            Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}"
+            Margin="0 5"
+            VerticalAlignment="Stretch"
+            Height="90" 
+            AcceptsReturn="True"
+            TextWrapping="Wrap"
+            VerticalScrollBarVisibility="Auto"
+            materialDesign:HintAssist.Hint="请输入备注"
+            IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignOutlinedTextFieldTextBoxEnabledComboBox}" />
+            </StackPanel>
+            <!--机型-->
+        <StackPanel Grid.Row="5" Margin="10 0">
+            <Button x:Name="Save"
+                Click="Save_Click" FontSize="16"
+                Style="{StaticResource MaterialDesignFlatButton}" Foreground="Orange"
+                ToolTip="保存参数">
+                保存参数
+            </Button>
+        </StackPanel>
+
+           <materialDesign:Card Grid.Row="6" Margin="10"
+        Background="{DynamicResource MaterialDesignBackground}">
+            <StackPanel>
+                <Expander
+        HorizontalAlignment="Stretch"
+        Header="参数说明">
+                    <StackPanel
+        Orientation="Vertical"
+        TextBlock.Foreground="{DynamicResource MaterialDesignBody}"
+        Margin="24,8,24,16">
+        <TextBlock Text="参数作用" />
+                            <TextBlock
+          Opacity=".68"
+          Text="对于任何一种机型，都只需录入一次，录入成功后将极大的提高查询、下单效率。"/>
+
+            </StackPanel>
+                </Expander>
+                <Border
+      Background="{DynamicResource MaterialDesignDivider}"
+      Height="1"
+      HorizontalAlignment="Stretch"
+      SnapsToDevicePixels="True" />
+            </StackPanel>
+        </materialDesign:Card>
+
+            <StackPanel Grid.Row="7" Margin="10,20,10,0" VerticalAlignment="Bottom" >
+                <Button x:Name="Clean"
+                Click="Clean_Click" FontSize="16"
+                Style="{StaticResource MaterialDesignFlatButton}" Foreground="#00d8ff"
+                ToolTip="清除内容" Content="一键清除"/>
+            </StackPanel>
+        </Grid>
+        </ScrollViewer>
+        <!--消息框-->
+        <materialDesign:Snackbar x:Name="message" IsActive="False" Opacity="0.5">
+            <materialDesign:SnackbarMessage x:Name="sure"  Content="保存成功" ActionContent="确定" ActionClick="sure_ActionClick"/>
+        </materialDesign:Snackbar>
+    </Grid>
+</Page>
