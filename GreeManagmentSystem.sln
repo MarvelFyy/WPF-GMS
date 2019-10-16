@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29230.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreeManagmentSystem", "GreeManagmentSystem\GreeManagmentSystem.csproj", "{79982909-7329-4D36-B543-AE28604DC34D}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GMSInstaller", "GMSInstaller\GMSInstaller.vdproj", "{4FD334D3-884B-40E7-AE64-ED71A9E693D3}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GMSInstaller", "GMSInstaller\GMSInstaller.vdproj", "{2DDBBCA6-DD6B-43F4-8016-4BA9E00C4A3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{79982909-7329-4D36-B543-AE28604DC34D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79982909-7329-4D36-B543-AE28604DC34D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79982909-7329-4D36-B543-AE28604DC34D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4FD334D3-884B-40E7-AE64-ED71A9E693D3}.Debug|Any CPU.ActiveCfg = Debug
-		{4FD334D3-884B-40E7-AE64-ED71A9E693D3}.Release|Any CPU.ActiveCfg = Release
+		{2DDBBCA6-DD6B-43F4-8016-4BA9E00C4A3D}.Debug|Any CPU.ActiveCfg = Debug
+		{2DDBBCA6-DD6B-43F4-8016-4BA9E00C4A3D}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
