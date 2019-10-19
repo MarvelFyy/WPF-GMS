@@ -16,7 +16,7 @@
          >
 
     <Window.Resources>
-        
+
         <!--Banner-->
         <Storyboard x:Key="ShrinkBanner">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(TextBlock.Opacity)" Storyboard.TargetName="Banner">
@@ -46,7 +46,7 @@
                 <EasingDoubleKeyFrame KeyTime="0:0:0.01" Value="176"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
-        
+
         <!--GridMenu-->
         <Storyboard x:Key="ChangeColor">
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Grid.Background).Color" Storyboard.TargetName="GridMenu">
@@ -99,14 +99,14 @@
             <StackPanel Orientation="Horizontal">
 
                 <StackPanel>
-                    <TextBlock x:Name="Banner" Text="格力空调管理系统 V2.1.1"  Opacity="0.6" FontWeight="Bold" FontSize="14" Margin="15" Style="{x:Null}"/>
+                    <TextBlock x:Name="Banner" Text="格力空调管理系统 V2.1.1"  Opacity="0.6" FontWeight="Bold" FontSize="14" Margin="9 15" Style="{x:Null}"/>
 
 
                     <StackPanel Orientation="Horizontal">
                         <Button x:Name="ButtonClose" Style="{x:Null}" Background="Transparent" BorderThickness="0" Click="ButtonClose_Click">
                             <materialDesign:PackIcon Kind="HamburgerMenu" Width="40" Height="40" />
                         </Button>
-                        
+
 
 
                         <materialDesign:RatingBar VerticalAlignment="Center" Value="4" Foreground="#60CEF4" Margin="5 0 0 0"/>
@@ -154,7 +154,7 @@
                     </RadioButton>
                 </StackPanel>
 
-                <ProgressBar Orientation="Vertical" Height="auto" IsIndeterminate="True" Opacity="0.5"/>
+                <ProgressBar Orientation="Vertical" Height="1" IsIndeterminate="True" Opacity="0.5"/>
             </StackPanel>
 
         </Grid>
@@ -168,12 +168,16 @@
             </Grid.RowDefinitions>
             <!--自定义关闭、最小化、最大化按钮-->
             <Grid Grid.Row="0">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*"/>
+                    <RowDefinition Height="31*"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.RowSpan="2" >
                     <Button x:Name="Minimize" Width="40" Height="40" Content="─" Foreground="Black" BorderThickness="0"  Background="Transparent" Click="Minimize_Click" Visibility="Visible"/>
                     <Button x:Name="Maximize" Width="40" Height="40" Content="☐" Foreground="Black" BorderThickness="0" Background="Transparent" Click="Maximize_Click"/>
                     <Button x:Name="CloseThis" Width="40" Height="40" Content="✕" Foreground="Black" BorderThickness="0" Background="Transparent" Click="CloseThis_Click"/>
                 </StackPanel>
-                <ProgressBar IsIndeterminate="True" Height="1" VerticalAlignment="Top" Margin="0 40 0 0" Opacity="0.5"/>
+                <ProgressBar IsIndeterminate="True" Height="1" VerticalAlignment="Top" Margin="0,30,0,0" Opacity="0.5" Grid.Row="1"/>
 
             </Grid>
 
