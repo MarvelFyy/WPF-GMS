@@ -16,7 +16,7 @@ namespace GreeManagmentSystem.User.InputInfo
     {
 
         Multiply func = new Multiply();
-        PurchaseDao purchaseDao = new PurchaseDao();
+        static PurchaseDao purchaseDao = new PurchaseDao();
 
         //SQL of Fill
         string SQL_Fill = "SELECT*FROM Template";
@@ -114,6 +114,7 @@ namespace GreeManagmentSystem.User.InputInfo
         {
             try
             {
+                func.ClearItems(Name);
                 string item = Category.SelectedItem.ToString();             
                 purchaseDao.QueryName(item,Name);
             }
@@ -128,6 +129,7 @@ namespace GreeManagmentSystem.User.InputInfo
         {
             try
             {
+                func.ClearItems(Type);
                 string item = Name.SelectedItem.ToString();          
                 purchaseDao.QueryType(item, Type);
 

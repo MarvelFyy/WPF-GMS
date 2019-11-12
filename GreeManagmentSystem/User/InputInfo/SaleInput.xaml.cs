@@ -15,7 +15,7 @@ namespace GreeManagmentSystem.User.InputInfo
     public partial class SaleInput : Page
     {
         Multiply func = new Multiply();
-
+        static SalesOrderDao salesOrderDao = new SalesOrderDao();
         //SQL of Type
         string SQL_Fill = "SELECT*FROM Template";
 
@@ -111,8 +111,8 @@ namespace GreeManagmentSystem.User.InputInfo
         {
             try
             {
+                func.ClearItems(Name);
                 string item = Category.SelectedItem.ToString();
-                SalesOrderDao salesOrderDao = new SalesOrderDao();
                 salesOrderDao.QueryName(item, Name);
             }
             catch (Exception)
@@ -125,8 +125,8 @@ namespace GreeManagmentSystem.User.InputInfo
         {
             try
             {
+                func.ClearItems(Type);
                 string item = Name.SelectedItem.ToString();
-                SalesOrderDao salesOrderDao = new SalesOrderDao();
                 salesOrderDao.QueryType(item, Type);
 
             }
@@ -140,8 +140,7 @@ namespace GreeManagmentSystem.User.InputInfo
         {
             try
             {
-                string item = Name.SelectedItem.ToString();
-                SalesOrderDao salesOrderDao = new SalesOrderDao();
+                string item = Type.SelectedItem.ToString();
                 salesOrderDao.AutoFillRemarks(item, Remarks);
 
             }

@@ -76,6 +76,17 @@ namespace GreeManagmentSystem.User.Method
                 MessageBox.Show(ex.Message);
             }
         }
+        public void ClearItems(ComboBox comboBox)
+        {
+            try
+            {
+                comboBox.Items.Clear();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
 
 
         //状态定制方法
